@@ -1,0 +1,83 @@
+/* PandaLoader.css */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-primary, #0f172a);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.panda-loader {
+    width: 150px;
+    height: 150px;
+    animation: bounce 1.2s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+    transform-origin: bottom center;
+}
+
+.loader-text {
+    margin-top: 2rem;
+    color: var(--text-main, #f8fafc);
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: 1px;
+    animation: pulseText 1.5s infinite ease-in-out;
+}
+
+.eye-sparkle {
+    animation: blink 4s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0) scaleY(1);
+    }
+
+    40% {
+        transform: translateY(-30px) scaleY(1.05);
+    }
+
+    50% {
+        transform: translateY(-30px) scaleY(1.05);
+    }
+
+    80% {
+        transform: translateY(0) scaleY(0.9);
+    }
+}
+
+@keyframes pulseText {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    96%,
+    98%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    97%,
+    99% {
+        transform: scaleY(0.1);
+    }
+}

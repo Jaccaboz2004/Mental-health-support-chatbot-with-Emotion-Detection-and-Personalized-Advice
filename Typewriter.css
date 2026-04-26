@@ -1,0 +1,22 @@
+/* Typewriter.css */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: var(--text-main, #e2e8f0);
+    margin-left: 3px;
+    animation: blink 1s infinite;
+    vertical-align: text-bottom;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
