@@ -1,0 +1,206 @@
+.music-therapy-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #1b2838 0%, #0d131f 100%);
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  padding: 3rem 1.5rem 100px;
+  box-sizing: border-box;
+}
+
+.music-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.music-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: -webkit-linear-gradient(135deg, #10b981, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.music-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.music-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Breathing Widget */
+.breathing-widget {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.breathing-widget h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.breathing-widget p {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.breathing-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.breathing-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(56, 189, 248, 0.05) 80%);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.2), inset 0 0 40px rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 4s ease-in-out;
+}
+
+/* The magic of the breathing animation */
+.breathing-circle.inhale {
+  transform: scale(1.5);
+  box-shadow: 0 0 60px rgba(56, 189, 248, 0.6), inset 0 0 80px rgba(255,255,255,0.2);
+}
+
+.breathing-circle.exhale {
+  transform: scale(1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(255,255,255,0.05);
+}
+
+.breathing-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Category Grid */
+.categories-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.category-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Music Cards UI */
+.music-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.music-card.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--hover-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.music-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--hover-color);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.music-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+.music-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Persistent Player */
+.persistent-player {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.95);
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.close-player-btn {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  transition: transform 0.2s;
+}
+
+.close-player-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Animations from standard package */
+.fade-in-down {
+  animation: fadeInDown 0.6s ease-out both;
+}
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}

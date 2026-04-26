@@ -1,0 +1,243 @@
+/* SmartModeModal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.smart-modal-container {
+  position: relative;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 480px;
+  padding: 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: white;
+}
+
+.modal-header {
+  margin-bottom: 20px;
+}
+
+.sparkle-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.privacy-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cad3e0;
+  margin-bottom: 30px;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -5px rgba(59, 130, 246, 0.5);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.detecting-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+}
+
+.detecting-text {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.camera-preview-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(59, 130, 246, 0.5);
+  margin: 0 auto 15px;
+}
+
+.small-video-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* Mirror camera */
+}
+
+.scanning-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #3b82f6;
+  box-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+  animation: scan 2s linear infinite;
+}
+
+.current-emotion-hint {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #38bdf8;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: #ef4444;
+  padding: 20px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fadeIn { animation: fadeIn 0.3s ease forwards; }
+.slideUp { animation: slideUp 0.3s ease forwards; }
+
+/* ── Snapshot countdown ring ────────────────────────────────── */
+.snapshot-countdown-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 4px solid #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: #38bdf8;
+  background: rgba(0, 0, 0, 0.5);
+  animation: countRing 1s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.7);
+  z-index: 10;
+}
+
+@keyframes countRing {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%       { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* ── Flash overlay when shutter fires ──────────────────────── */
+.snapshot-flash {
+  position: absolute;
+  inset: 0;
+  background: white;
+  border-radius: 50%;
+  animation: flashOut 0.4s ease forwards;
+  z-index: 20;
+}
+
+@keyframes flashOut {
+  from { opacity: 0.85; }
+  to   { opacity: 0; }
+}
+
+/* ── Result badge after detection ──────────────────────────── */
+.snapshot-result-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 30px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #22c55e;
+  margin-top: 12px;
+  animation: slideUp 0.3s ease forwards;
+}
+
