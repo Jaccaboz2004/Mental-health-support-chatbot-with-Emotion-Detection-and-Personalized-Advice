@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\Abhishek\Documents\mental-health-chatbot\backend\server.py", line 423, in analyze_emotion
+    insight=insight
+NameError: name 'insight' is not defined

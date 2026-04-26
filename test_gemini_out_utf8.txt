@@ -1,0 +1,133 @@
+﻿C:\Users\Abhishek\Documents\m
+ental-health-chatbot\venv\Scr
+ipts\python.exe : Traceback 
+(most recent call last):
+At line:1 char:1
++ C:\Users\Abhishek\Documents
+\mental-health-chatbot\venv\S
+cripts\python ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (Traceba  
+  ck (most recent call las   
+ t)::String) [], RemoteEx    
+ception
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+  File "C:\Users\Abhishek\Doc
+uments\mental-health-chatbot\
+backend\test_gemini_utf8.py",
+ line 17, in <module>
+    asyncio.run(test())
+  File "C:\Users\Abhishek\App
+Data\Local\Programs\Python\Py
+thon310\lib\asyncio\runners.p
+y", line 44, in run
+    return 
+loop.run_until_complete(main)
+  File "C:\Users\Abhishek\App
+Data\Local\Programs\Python\Py
+thon310\lib\asyncio\base_even
+ts.py", line 641, in 
+run_until_complete
+    return future.result()
+  File "C:\Users\Abhishek\Doc
+uments\mental-health-chatbot\
+backend\test_gemini_utf8.py",
+ line 10, in test
+    resp = await client.chat.
+completions.create(
+  File "C:\Users\Abhishek\Doc
+uments\mental-health-chatbot\
+venv\lib\site-packages\openai
+\resources\chat\completions\c
+ompletions.py", line 2676, 
+in create
+    return await self._post(
+  File "C:\Users\Abhishek\Doc
+uments\mental-health-chatbot\
+venv\lib\site-packages\openai
+\_base_client.py", line 
+1884, in post
+    return await 
+self.request(cast_to, opts, 
+stream=stream, 
+stream_cls=stream_cls)
+  File "C:\Users\Abhishek\Doc
+uments\mental-health-chatbot\
+venv\lib\site-packages\openai
+\_base_client.py", line 
+1669, in request
+    raise self._make_status_e
+rror_from_response(err.respon
+se) from None
+openai.RateLimitError: Error 
+code: 429 - [{'error': 
+{'code': 429, 'message': 
+"Quota exceeded for quota 
+metric 'Generate Content API 
+requests per minute' and 
+limit 'GenerateContent 
+request limit per minute for 
+a region' of service 'generat
+ivelanguage.googleapis.com' 
+for consumer 'project_number:
+304093377889'.", 'status': 
+'RESOURCE_EXHAUSTED', 
+'details': [{'@type': 'type.g
+oogleapis.com/google.rpc.Erro
+rInfo', 'reason': 
+'RATE_LIMIT_EXCEEDED', 
+'domain': 'googleapis.com', 
+'metadata': {'quota_unit': 
+'1/min/{project}/{region}', 
+'quota_metric': 'generativela
+nguage.googleapis.com/generat
+e_content_requests', 
+'quota_limit': 'GenerateConte
+ntRequestsPerMinutePerProject
+PerRegion', 'service': 'gener
+ativelanguage.googleapis.com'
+, 'consumer': 
+'projects/304093377889', 
+'quota_location': 
+'asia-southeast1', 
+'quota_limit_value': '0'}}, 
+{'@type': 'type.googleapis.co
+m/google.rpc.Help', 'links': 
+[{'description': 'Request a 
+higher quota limit.', 'url': 
+'https://cloud.google.com/doc
+s/quotas/help/request_increas
+e'}]}]}}]
+Exception ignored in: 
+<function _ProactorBasePipeTr
+ansport.__del__ at 
+0x000002843A476DD0>
+Traceback (most recent call 
+last):
+  File "C:\Users\Abhishek\App
+Data\Local\Programs\Python\Py
+thon310\lib\asyncio\proactor_
+events.py", line 116, in 
+__del__
+  File "C:\Users\Abhishek\App
+Data\Local\Programs\Python\Py
+thon310\lib\asyncio\proactor_
+events.py", line 108, in 
+close
+  File "C:\Users\Abhishek\App
+Data\Local\Programs\Python\Py
+thon310\lib\asyncio\base_even
+ts.py", line 745, in 
+call_soon
+  File "C:\Users\Abhishek\App
+Data\Local\Programs\Python\Py
+thon310\lib\asyncio\base_even
+ts.py", line 510, in 
+_check_closed
+RuntimeError: Event loop is 
+closed

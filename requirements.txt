@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+motor
+pydantic
+python-dotenv
+openai
+flask
+flask-cors
+scikit-learn
+joblib
+scipy
+pandas
+numpy
